@@ -1,0 +1,513 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #181d2a;
+    overflow-x: hidden;
+}
+
+/* topic */
+
+h1 {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-size: clamp(3rem, 7vw + 1rem, 6rem);
+    font-weight: bold;
+    color: white;
+    order: 1;
+}
+
+.topic-text-sub {
+    color: white;
+    font-family: "Futura ", Trebuchet MS, Arial, sans-serif;
+    font-size: clamp(1rem, 2.2vw, 2rem);
+    margin-bottom: 3rem;
+    padding-top: 0.3rem;
+    padding-left: 0.2rem;
+}
+
+.githubicon {
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.aboutme_topic_image-container {
+    order: 2;
+    position: relative;
+    height: clamp(15rem, 40vw + 10rem, 40rem);
+    width: clamp(15rem, 40vw + 10rem, 40rem);
+}
+
+.saturn,
+.satellite,
+.earth {
+    position: absolute;
+    height: clamp(15rem, 40vw + 10rem, 40rem);
+    width: clamp(15rem, 40vw + 10rem, 40rem);
+}
+
+.saturn {
+    animation: saturn-animation 3s 0.4s ease-in-out infinite alternate;
+}
+
+.satellite {
+    animation: satellite-animation 3s 0.8s ease-in-out infinite alternate
+}
+
+.earth {
+    animation: earth-animation 3s 0.6s ease-in-out infinite alternate;
+}
+
+.astronaut {
+    position: absolute;
+    right: 0%;
+    bottom: 0%;
+    height: clamp(12rem, 32vw + 8rem, 32rem);
+    width: clamp(9.45rem, 25.26vw + 6.31rem, 25.26rem);
+    background-image: url('images/astronaut.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    animation: float-animation 3s ease-in-out alternate infinite;
+}
+
+.astronaut::before {
+    content: "What's up";
+    animation: hello-animation 6s infinite;
+    color: white;
+    font-family: "Futura ", Trebuchet MS, Arial, sans-serif;
+    font-size: clamp(1rem, 3vw, 6rem);
+    display: inline-block;
+    transform: translate(-30%, -80%);
+}
+
+.topic {
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 100vh;
+    padding-top: 6rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 3rem;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* content section */
+
+.who-am-I,
+.hobby,
+.things_I_like,
+.this_years_resolution {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    padding: 3rem;
+    min-height: 20rem;
+}
+
+h2 {
+    color: rgb(185, 208, 233);
+    font-family: "Futura ", Trebuchet MS, Arial, sans-serif;
+    font-size: clamp(2.6rem, 5vw, 3.4rem);
+    margin-bottom: 2rem;
+    line-height: 1.5ch;
+}
+
+.who-am-I-content,
+.things_I_like-content {
+    color: white;
+    font-family: "Futura ", Trebuchet MS, Arial, sans-serif;
+    font-size: clamp(1.2rem, 2vw, 1.8rem);
+    max-width: 45ch;
+    line-height: 150%;
+    order: 1;
+}
+
+.hobby-content,
+.resolution-content {
+    color: white;
+    font-family: "Futura ", Trebuchet MS, Arial, sans-serif;
+    font-size: clamp(1.2rem, 2vw, 1.8rem);
+    max-width: 45ch;
+    line-height: 150%;
+    order: 2;
+}
+
+.my-image,
+.things_I_like-image {
+    order: 2;
+    position: relative;
+    width: clamp(15rem, 40vw + 5rem, 40rem);
+    height: clamp(15rem, 40vw + 5rem, 40rem);
+}
+
+.hobby-image,
+.resolution-image {
+    order: 1;
+    position: relative;
+    width: clamp(15rem, 40vw + 5rem, 40rem);
+    height: clamp(15rem, 40vw + 5rem, 40rem);
+}
+
+.background,
+.shadow,
+.screen,
+.keyboard,
+.window1,
+.window2,
+.computer-background,
+.things_I_like-person,
+.things_I_like-heart,
+.resolution-man,
+.big-bubble,
+.smol-bubble {
+    position: absolute;
+    width: clamp(15rem, 40vw + 5rem, 40rem);
+    height: clamp(15rem, 40vw + 5rem, 40rem);
+    left: 0%;
+    top: 0%;
+}
+
+.personal-photo {
+    position: absolute;
+    width: clamp(15rem, 40vw + 5rem, 40rem);
+    height: clamp(15rem, 40vw + 5rem, 40rem);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 0);
+
+}
+
+.window1 {
+    z-index: 50;
+}
+
+.window2 {
+    z-index: 51;
+}
+
+.resolution-content ul li {
+    list-style: none;
+}
+
+/* navbar */
+
+nav {
+    display: flex;
+    z-index: 100;
+    /*box-shadow: 0px 2px 4px hsl(223, 27%, 18%);*/
+    background-color: hsl(223, 27%, 13%);
+    position: fixed;
+    right: 0;
+    left: 0;
+    justify-content: space-between;
+    align-items: center;
+    align-self: flex-start;
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.hamburger-toggle {
+    position: absolute;
+    width: 1.8rem;
+    height: 1.3rem;
+    top: 2rem;
+    right: 2rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    z-index: 150;
+}
+
+.hamburger-toggle span {
+    height: 3px;
+    width: 100%;
+    border-radius: 10px;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+.hamburger-toggle .bar-3 {
+    width: 80%;
+}
+
+.toggle .bar-1 {
+    transform: rotate(-45deg) translate(-4.2px, 7px);
+}
+
+.toggle .bar-2 {
+    transform: rotateX(90deg);
+}
+
+.toggle .bar-3 {
+    transform: rotate(405deg) translate(-7.4px, -7px) scaleX(1.25);
+}
+
+.Site-title {
+    height: clamp(2rem, 3vw, 3rem);
+    width: clamp(3.55rem, 5.33vw, 5.33rem);
+    z-index: 150;
+}
+
+.navbar-links ul {
+    margin: 0%;
+    padding: 0%;
+    display: flex;
+    gap: 2rem;
+    background-color: hsl(223, 27%, 13%);
+}
+
+.navbar-links li {
+    list-style: none;
+    position: relative;
+}
+
+.navbar-links li a {
+    text-decoration: none;
+    font-size: 1.6rem;
+    font-family: "Futura ", Trebuchet MS, Arial, sans-serif;
+    color: white;
+    display: block;
+    padding: 1rem;
+    z-index: 15;
+    border-radius: 10px;
+    position: relative;
+}
+
+.navbar-links ul li a div {
+    position: relative;
+}
+
+.navbar-links ul li a div p{
+    z-index: 1;
+}
+
+#home-icon, 
+#about-icon,
+#portfolio-icon {
+    color: #b9d0e9;;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 25%;
+    top: 0;
+    opacity: 0;
+    z-index: -1;
+}
+
+/* footer */
+
+footer {
+    background-color: hsl(223, 28%, 10%);
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+}
+
+footer header {
+    display: flex;
+    justify-content: center;
+}
+
+h3 {
+    color: white;
+    font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+    font-family: "Futura ", Trebuchet MS, Arial, sans-serif;
+}
+
+footer ul {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr));
+    padding: 1.5rem 1rem 3rem 1rem;
+    gap: 0.5rem;
+}
+
+footer ul li {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+footer ul li a {
+    text-decoration: none;
+    font-family: "Futura ", Trebuchet MS, Arial, sans-serif;
+    color: white;
+    font-size: clamp(0.8rem, 2vw, 1.4rem);
+}
+
+footer ul li a:hover {
+    color: hsl(212, 52%, 82%);
+}
+
+footer ul li a::before {
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    padding-right: clamp(0.25rem, 0.6vw, 0.5rem);
+}
+
+.github-link::before {
+    font-family: "Font Awesome 5 Brands";
+    font-weight: 500;
+    content: "\f09b";
+}
+
+.stack-overflow-link::before {
+    font-family: "Font Awesome 5 Brands";
+    font-weight: 500;
+    content: "\f16c";
+}
+
+.instagram-link::before {
+    font-family: "Font Awesome 5 Brands";
+    font-weight: 500;
+    content: "\f16d";
+}
+
+.twitter-link::before {
+    font-family: "Font Awesome 5 Brands";
+    font-weight: 500;
+    content: "\f099";
+}
+
+.facebook-link::before {
+    font-family: "Font Awesome 5 Brands";
+    font-weight: 500;
+    content: "\f09a";
+}
+
+/* scrollbar */
+
+html::-webkit-scrollbar {
+    width: 1vw;
+}
+
+html::-webkit-scrollbar-thumb {
+    border-radius: 1.25vw;
+    background-color: rgba(124, 124, 124, 0.473);
+}
+
+html::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(124, 124, 124, 0.897);
+}
+
+/* animation */
+
+@keyframes float-animation {
+    100% {
+        transform: translate(0%, -15%);
+    }
+}
+
+@keyframes earth-animation {
+    100% {
+        transform: translate(-8%, -8%) scale(0.9);
+    }
+}
+
+@keyframes satellite-animation {
+    100% {
+        transform: translate(-3%, 10%) rotateZ(10deg) scale(0.9);
+    }
+}
+
+@keyframes saturn-animation {
+    100% {
+        transform: translate(13%, -10%) scale(0.8);
+    }
+}
+
+@keyframes hello-animation {
+    0% {
+        color: transparent;
+    }
+    29% {
+        color: transparent;
+    }
+    30% {
+        color: white;
+    }
+    70% {
+        color: white;
+    }
+    71% {
+        color: transparent;
+    }
+    100% {
+        color: transparent;
+    }
+}
+
+
+/* media query */
+
+@media (max-width: 58rem) {
+    .hobby-image,
+    .resolution-image {
+        order: 2;
+    }
+    .hobby-content,
+    .resolution-content {
+        order: 1;
+    }
+    .who-am-I,
+    .hobby,
+    .things_I_like,
+    .this_years_resolution {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 600px) {
+    .hamburger-toggle {
+        display: flex;
+    }
+    .hamburger-toggle:hover {
+        cursor: pointer;
+    }
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 2rem;
+    }
+    .navbar-links {
+        width: 100%;
+        display: flex;
+        position: absolute;
+        left: 0;
+        top: 3.5rem;
+        transition: transform 0.5s ease-in;
+        transform: translateY(-200%);
+    }
+    .navbar-links ul {
+        flex-direction: column;
+        width: 100%;
+    }
+    .navbar-links ul li {
+        width: 100%;
+    }
+    .navbar-links li {
+        text-align: center;
+    }
+    .navbar-links.active {
+        display: flex;
+        transition: transform 0.5s ease-in;
+        transform: translateY(0%);
+    }
+    #home-icon,
+    #about-icon,
+    #portfolio-icon {
+        left: 0%;
+    }
+}
